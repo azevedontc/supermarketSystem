@@ -1,3 +1,5 @@
 Copyright © 2022 - [azevedontc](https://github.com/azevedontc)
 
-A permissão é concedida, gratuitamente, a qualquer pessoa que obtenha uma cópia deste arquivo, com restrição de publicar como seu repositório. Porém, sem restrição nos direitos de usar, copiar, modificar e mesclar.
+Permission is granted, free of charge, to obtain a copy of this file, under the restricted condition of publishing as your repository. However, without restriction on the rights to use, copy, modify and merge.
+
+A permissão é concedida, gratuitamente para obter uma cópia deste arquivo, na condição de restrita de publicar como seu repositório. Porém, sem restrição nos direitos de usar, copiar, modificar e mesclar.
