@@ -1,8 +1,6 @@
 # supermarketSystem
 Supermarket System / Sistema de Supermercado
 
-<br>
-<br>
 
 Semester work of the Object Oriented Programming discipline
 
