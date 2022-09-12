@@ -1,5 +1,8 @@
 # supermarketSystem
 Supermarket System / Sistema de Supermercado
+<br>
+<br>
+Trabalho do semestre da disciplina Programação Orientada a Objetos
 
 <p align="left">
   <a href="https://www.figma.com/file/yMDtWCKXw9WSP4dJnq6KKe/supermarketSystem?node-id=0%3A1" alt="GitHub">
@@ -11,6 +14,4 @@ Supermarket System / Sistema de Supermercado
   <a href="https://www.figma.com/file/yMDtWCKXw9WSP4dJnq6KKe/supermarketSystem?node-id=0%3A1" alt="Figma">
     Prototipação Figma
   </a> <br>
-
-  
 </p>
