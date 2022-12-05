@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <section class="form">
+        <img src="{% static 'img/icon/ntc.svg' %}" alt="ntc">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %} 
+            <div class="input">
+                {{ form.username }}
+                <label for="username" class="input__label">Username</label>
+                {{ form.username.errors }}
+            </div>
+            <div class="input">
+                {{ form.password }}
+                <label for="password" class="input__label">Password</label>
+                {{ form.password.errors }}
+            </div>
+            <button type="submit" class="btn btn--large">Fazer Login</button>
+        </form>
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </section>
+</body>
+</html>

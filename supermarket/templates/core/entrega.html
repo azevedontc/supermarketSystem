@@ -1,0 +1,41 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Entrega
+{% endblock title %}
+
+{% block body %}
+  <section class="services-page">
+    <div class="services__icon">
+      <img src="{% static 'img/icon/delivery.svg' %}" alt="Entrega" />
+    </div>
+    <h3>Opção selecionada “Entrega” 
+        Vá para o caixa selecionado
+        e a equipe do supermercado
+        irá te orientar para realizar a 
+        entrega em sua residência !</h3>
+    {% for caixa in caixas %}
+      <div class="caixa">
+        <div class="caixa__number">
+          {{caixa.number}}
+        </div>
+        <div class="caixa__main">
+          <div class="caixa__name">
+            <h2>Caixa {{caixa.number}}</h2>
+          </div>
+          <div class="caixa__fila">
+            <!-- <p>{{caixa.line}}</p> -->
+            <div class="caixa__fila">
+              {% if caixa.available == True %} 
+                <p>Disponivel</p>
+              {% else %}
+                <p>Fila: {{caixa.line}} {% if caixa.line == 1 %} Pessoa {% else %} Pessoas {% endif %}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endblock body %}

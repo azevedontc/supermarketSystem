@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__top">
+      <div class="account">
+        <a href="{% url 'logout' %}" class="exit">
+          <img src="{% static 'img/icon/exit.svg' %}" alt="logout" />
+        </a>
+        <p>{{ request.user.username }}</p>
+      </div>
+
+      <a href="{% url 'call_staff' %}" class="staff">
+        <img src="{% static 'img/icon/staff.svg' %}" alt="chamar funcionario" />
+      </a>
+    </div>
+
+    <form action="{% url 'search' %}" method="get">
+      <div class="search">
+        <input type="search" name="q" placeholder="Pesquisar..."/>
+        <button type="submit">
+          <img src="{% static 'img/icon/search.svg' %}" alt="Search" />
+        </button>
+      </div>
+      </form>
+  </header>
+  <main>
+    {% block body %}
+    {% endblock body %}
+  </main>
+</body>
+</html>

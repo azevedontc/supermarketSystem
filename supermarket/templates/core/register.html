@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <section class="form">
+
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="input">
+                {{ form.username }}
+                <label for="username" class="input__label">Nome de usúario</label>
+                {{ form.username.errorss }}
+            </div>
+            <div class="input">
+                {{ form.first_name }}
+                <label for="first_name" class="input__label">Primeiro nome</label>
+                {{ form.first_name.errorss }}
+            </div>
+            <div class="input">
+                {{ form.last_name }}
+                <label for="last_name" class="input__label">Sobrenome</label>
+                {{ form.last_name.errorss }}
+            </div>
+            <div class="input">
+            {{ form.email }}
+            <label for="email" class="input__label">Email</label>
+            {{ form.email.errorss }}
+        </div>
+        <div class="input">
+            {{ form.password }}
+            <label for="password" class="input__label">Senha</label>
+            {{ form.password.errorss }}
+        </div>
+        <div class="input">
+            {{ form.confirmation }}
+            <label for="confirmation" class="input__label">Confirmar senha</label>
+            {{ form.confirmation.errorss }}
+        </div>
+        <button type="submit" class="btn btn--large">Criar conta</button>
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    </section>
+</body>
+</html>

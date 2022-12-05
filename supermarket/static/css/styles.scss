@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,900&display=swap');
+
+// ======================= Variables =======================
+$bg: #f5f5f5;
+$bg-secondary: #F3F3F3;
+$primary: #444;
+$tertiary: #37C666;
+$animation-time: 442ms;
+$radius: 12px;
+$indisponivel: #BD8902;
+
+// ======================= MIxins =======================
+@mixin FlexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin FlexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// ======================= General =======================
+*, html, body {
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html, input {
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  padding: 0 1em;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: $tertiary;
+  transition: all $animation-time ease-in-out;
+  &:hover {
+    color: darken($color: $tertiary, $amount: 9)
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.section {
+  // padding: .5em 1em;
+
+  .section__top {
+    @include FlexBetween();
+    padding: 1em 0;
+  }
+
+  img {
+    border-radius: $radius;
+    // padding-top: 1.2em;
+    width: 100%;
+  }
+}
+// ======================= Header =======================
+.header {
+  .header__top {
+    @include FlexBetween();
+    padding: .5em 0;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+    }
+
+  }
+
+  .account {
+    @include FlexBetween();
+
+    img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+    }
+
+    p {
+      padding: 0 .8em;
+    }
+  }
+  
+  .staff, .exit {
+    @include FlexCenter();
+    border: 1px solid lighten($color: $primary, $amount: 40);
+    border-radius: 50%;
+    padding: .4em;
+    transition: all $animation-time ease-in-out;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background-color: $bg-secondary;
+    }
+  }
+
+  .search {
+    @include FlexBetween();
+    margin: 1em 0 0 0;
+    width: 100%;
+    background-color: $bg-secondary;
+    border-radius: $radius;
+    padding: .5em 1.2em;
+
+    input, button {
+      border: none;
+      background: none;
+    }
+
+    input {
+      padding: .45em;
+      width: 90%;
+      font-size: 10pt;
+    }
+
+    @media (min-width: 768px) {
+      width: 400px;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    @include FlexBetween();
+    padding: .5em;
+  }
+}
+
+// ======================= Home =======================
+.home {
+  @include FlexBetween();
+  align-items: initial;
+  
+  .home__main {
+    width: 60%
+  }
+
+  .aside {
+    padding: 1em;
+    background-color: $bg-secondary;
+    border-radius: $radius;
+    width: 35%;
+    // height: 20px;
+    margin: 1rem 0;
+  }
+}
+
+.services {
+  @include FlexBetween();
+
+  .services__item {
+    text-align: center;
+
+    p {
+      padding: .4em 0;
+      font-size: 10pt;
+    }
+  }
+}
+
+.services__icon {
+  background-color: $tertiary;
+  border-radius: $radius;
+  padding: 1em;
+  width: 74px;
+  height: 74px;
+  transition: all $animation-time ease-in-out;
+
+  &:hover {
+    background-color: darken($color: $tertiary, $amount: 10);
+  }
+}
+
+.section__caixas {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.caixa {
+  background-color: $tertiary;
+  border-radius: $radius;
+  @include FlexBetween();
+  transition: all $animation-time ease-in-out;
+
+  .caixa__main {
+    width: 80%;
+  }
+
+  .caixa__number {
+    @include FlexCenter();
+    background-color: $bg;
+    width: 58px;
+    height: 58px;
+    margin: .2em;
+    text-align: center;
+    // padding: 1em;
+    border-radius: $radius;
+    font-size: 2.6rem;
+  }
+
+  &:hover {
+    background-color: darken($color: $tertiary, $amount: 8);
+    // box-shadow: 2px 14px 21px 0px rgba(0,0,0,0.3);
+  }
+}
+
+.caixa--ocupado {
+  background-color: $indisponivel;
+
+  &:hover {
+    background-color: darken($color: $indisponivel, $amount: 8);
+  }
+}
+
+.caixa:not(:first-child) {
+  margin: 1em 0;
+}
+
+.aside {
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+// ======================= Promotions =======================
+// ======================= Search and cards =======================
+.card {
+  width: 140px;
+  // display: block;
+  
+  .card__img {
+    text-align: center;
+    padding: 1em;
+    background-color: $bg-secondary;
+    border-radius: $radius;
+
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .price--old {
+    color: lighten($color: $primary, $amount: 50);
+    text-decoration: line-through;
+  }
+}
+
+// ======================= Login and sign up =======================
+.input {
+  margin: 1rem 0;
+
+  label {}
+
+  input {
+    width: 100%;
+    background-color: $bg-secondary;
+    border: none;
+    border-radius: $radius;
+    padding: 1em;
+  }
+}
+
+.form {
+  width: 95%;
+  margin: auto;
+
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+    margin: 2rem auto 0 auto;
+  }
+}
+
+.input {
+  position: relative;
+
+}
+
+.input input {
+  font-weight: 500;
+  // font-size: 1.6rem;
+  font-size: 1rem;
+  color: $primary;
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 1rem;
+  border: 2px solid  #D9D9D9;
+  outline:none;
+}
+
+.input .input__label {
+  position: absolute;
+  margin: 17px 0;
+  padding: 0 4px;
+  font-family: Roboto, sans-serif;
+  color:  #6c757d;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  top: 0;
+  left: 17px;
+  transition: all 0.2s;
+  transform-origin: 0% 0%;
+  background: none;
+  pointer-events: none;
+}
+.input input:valid + .input__label,
+.input input:focus + .input__label {
+  transform: scale(0.8) translateY(-30px);
+  background: #fff;
+}
+.input input:focus{
+  color: $primary;
+  border-color: $primary;
+}
+.input input:focus + .input__label {
+  color: $primary;
+}
+
+.btn {
+  width: 100%;
+  background-color: $tertiary;
+  padding: 1em 1.4em;
+  border: none;
+  border-radius: $radius;
+  font-weight: bold;
+  color: $bg;
+}
+// ======================= Service pages =======================
+.services-page {
+  width: 100%;
+
+  @media (min-width:768px) {
+    width: 40%;
+    margin: 5rem auto;
+  }
+
+  .services__icon {
+    margin: 2rem auto;
+  }
+
+  h3 {
+    margin: 3rem 0;
+    text-align: center;
+  }
+}
+
+.staff-page {
+  @include FlexCenter();
+  text-align: center;
+  height: 80vh;
+}

@@ -1,0 +1,102 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block body %}
+  <section class="home">
+    <div class="home__main">
+      <div class="section">
+        <div class="section__top">
+          <p>Ofertas especiais</p>
+          <a href="{% url 'promocoes' %}">Ver tudo</a>
+        </div>
+        <img src="{% static 'img/banner.png' %}" alt="Banner de Promoções" />
+      </div>
+      <div class="section">
+        <div class="section__top">
+          <p>Serviços especiais</p>
+        </div>
+
+        <div class="services">
+          <a class="services__item" href="{% url 'frios' %}">
+            <div class="services__icon">
+              <img src="{% static 'img/icon/ice.svg' %}" alt="Frios icon">
+            </div>
+            <p class="service__name">Frios</p>
+          </a>
+          <a class="services__item" href="{% url 'delivery' %}">
+            <div class="services__icon">
+              <img src="{% static 'img/icon/delivery.svg' %}" alt="Entrega icon">
+            </div>
+            <p class="service__name">Entrega</p>
+          </a>
+          <a class="services__item" href="{% url 'gift' %}">
+            <div class="services__icon">
+              <img src="{% static 'img/icon/gift.svg' %}" alt="gift icon">
+            </div>
+            <p class="service__name">Presente</p>
+          </a>
+          <a class="services__item" href="{% url 'volumes' %}">
+            <div class="services__icon">
+              <img src="{% static 'img/icon/box.svg' %}" alt="volumes icon">
+            </div>
+            <p class="service__name">Volumes</p>
+          </a>
+        </div>
+      </div>
+      
+      <div class="section section__caixas">
+        <div class="section__top">
+          <p>Caixas disponiveis</p>
+        </div>
+        <div class="caixas">
+          {% for caixa in caixas %}
+            <div class="caixa {% if caixa.available == False %} caixa--ocupado {% endif %}">
+              <div class="caixa__number">
+                {{caixa.number}}
+              </div>
+              <div class="caixa__main">
+                <div class="caixa__name">
+                  <h2>Caixa {{caixa.number}}</h2>
+                </div>
+                <div class="caixa__fila">
+                  {% if caixa.available == True %} 
+                    <p>Disponivel</p>
+                  {% else %}
+                    <p>Fila: {{caixa.line}} {% if caixa.line == 1 %} Pessoa {% else %} Pessoas {% endif %}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+    <aside class="aside">
+    <div class="caixas">
+      {% for caixa in caixas %}
+        <div class="caixa {% if caixa.available == False %} caixa--ocupado {% endif %}">
+          <div class="caixa__number">
+            {{caixa.number}}
+          </div>
+          <div class="caixa__main">
+            <div class="caixa__name">
+              <h2>Caixa {{caixa.number}}</h2>
+            </div>
+            <div class="caixa__fila">
+              {% if caixa.available == True %} 
+                <p>Disponivel</p>
+              {% else %}
+                <p>Fila: {{caixa.line}} {% if caixa.line == 1 %} Pessoa {% else %} Pessoas {% endif %}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor%}
+      </div>
+    </aside>
+  </section>
+{% endblock body %}

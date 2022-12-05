@@ -1,0 +1,22 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Explore
+{% endblock title %}
+
+{% block body %}
+    <main>
+      {% for result in results %}
+        <div class="card">
+          <div class="card__img">
+            <img src="{% static 'img/products/'|add:result.name|add:'.png' %}" alt="product cover">
+          </div>
+          <h2>{{ result }}</h2>
+          <p>R$ {{ result.price_with_discount|floatformat:2 }} <span class="price--old">{{ result.price }}</span></p>
+        </div>
+      {% endfor %}
+    </main>
+{% endblock body %}
+    

@@ -1,0 +1,41 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Frios
+{% endblock title %}
+
+{% block body %}
+  <section class="services-page">
+    <div class="services__icon">
+      <img src="{% static 'img/icon/ice.svg' %}" alt="Frios" />
+    </div>
+    <h3>Opção selecionada “Levo Frios” 
+      iremos te direcionar 
+      a um caixa especial, para
+      você cliente levar sua compra 
+      mais gelada possível !</h3>
+    {% for caixa in caixas %}
+      <div class="caixa">
+        <div class="caixa__number">
+          {{caixa.number}}
+        </div>
+        <div class="caixa__main">
+          <div class="caixa__name">
+            <h2>Caixa {{caixa.number}}</h2>
+          </div>
+          <div class="caixa__fila">
+            <!-- <p>{{caixa.line}}</p> -->
+            <div class="caixa__fila">
+              {% if caixa.available == True %} 
+                <p>Disponivel</p>
+              {% else %}
+                <p>Fila: {{caixa.line}} {% if caixa.line == 1 %} Pessoa {% else %} Pessoas {% endif %}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endblock body %}
