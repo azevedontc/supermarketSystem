@@ -23,7 +23,8 @@ class Caixas(models.Model):
     option = models.CharField(max_length=24, choices=CAIXA_CHOICES, default="presente")
 
     def __str__(self):
-        return f"caixa {self.number}"
+        ''' Nome do caixa na página de admin '''
+        return f"caixa número {self.number}"
 
 
     def get_frios_all(self):
@@ -42,7 +43,7 @@ class Product(models.Model):
 
     def price_with_discount(self):
         ''' Mostra o preço após aplicar o desconto '''
-        return self.price - self.discount
+        return self.price  - self.discount
 
     def __str__(self):
         return self.name

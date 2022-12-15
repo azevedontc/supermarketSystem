@@ -12,9 +12,15 @@
   <header class="header">
     <div class="header__top">
       <div class="account">
-        <a href="{% url 'logout' %}" class="exit">
-          <img src="{% static 'img/icon/exit.svg' %}" alt="logout" />
-        </a>
+        {% if request.user.is_authenticated == True %}
+          <a href="{% url 'logout' %}" class="exit">
+            <img src="{% static 'img/icon/exit.svg' %}" alt="logout" />
+          </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+          Login
+        <a/>
+        {% endif %}
         <p>{{ request.user.username }}</p>
       </div>
 

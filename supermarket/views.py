@@ -40,7 +40,13 @@ def presente(request):
 
 def promotions(request):
     ''' Lista todos os produtos em promoção '''
-    return render(request, "core/presente.html")
+    results = Product.objects.all()
+
+    context = {
+        "results": results
+    }
+
+    return render(request, "core/search.html", context)
 
 
 def search(request):
